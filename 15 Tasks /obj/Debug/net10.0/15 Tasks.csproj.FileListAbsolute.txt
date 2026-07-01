@@ -1,0 +1,14 @@
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /bin/Debug/net10.0/15 Tasks
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /bin/Debug/net10.0/15 Tasks.deps.json
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /bin/Debug/net10.0/15 Tasks.runtimeconfig.json
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /bin/Debug/net10.0/15 Tasks.dll
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /bin/Debug/net10.0/15 Tasks.pdb
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/15 Tasks.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/15 Tasks.AssemblyInfoInputs.cache
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/15 Tasks.AssemblyInfo.cs
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/15 Tasks.csproj.CoreCompileInputs.cache
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/15 Tasks.dll
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/refint/15 Tasks.dll
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/15 Tasks.pdb
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/15 Tasks.genruntimeconfig.cache
+/Users/shamsal.ghusaini/RiderProjects/First work sheet/15 Tasks /obj/Debug/net10.0/ref/15 Tasks.dll
