@@ -25,5 +25,14 @@ class Program
             sum = sum + i;
         }
         Console.WriteLine("sum = " + sum);
+        
+        //Task 3:
+        Console.WriteLine("Enter a Number");
+        int Number = int.Parse(Console.ReadLine());
+        
+        for (int i = 1 ; i <= 10 ; i++)
+        {
+            Console.WriteLine(Number + " x " + i + " = " + (Number * i));
+        }
     }
 }
