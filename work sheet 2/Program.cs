@@ -78,6 +78,26 @@ class Program
         while (guess != secreteNumber);
         Console.WriteLine("Attempets: " + attempts);
 
+        // Task 6:
+        try
+        {
+            Console.WriteLine("Enter First Number: ");
+            double num1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter Second Number: ");
+            double num2 = Convert.ToDouble(Console.ReadLine());
+
+            double result = num1 / num2;
+
+            Console.WriteLine("Result: " + result);
+        }
+        catch (DivideByZeroException)
+        {
+            Console.WriteLine("Cannot divide by zero");
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Incorrect input! please enter number only!");
+        }
 
 
 
