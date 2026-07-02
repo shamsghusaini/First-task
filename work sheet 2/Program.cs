@@ -14,5 +14,16 @@ class Program
         }
 
         Console.WriteLine("Liftoff");
+        
+        // Task 2 :
+        Console.WriteLine("Enter a positive number:");
+        int positiveNumber = int.Parse(Console.ReadLine());
+
+        int sum = 0;
+        for (int i = 1; i <= positiveNumber; i++)
+        {
+            sum = sum + i;
+        }
+        Console.WriteLine("sum = " + sum);
     }
 }
