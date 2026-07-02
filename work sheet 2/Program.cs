@@ -149,5 +149,42 @@ class Program
                 }
             }
             Console.WriteLine("Sum of even Numbers: " + evensum);
+            
+            
+        // Task 9:
+        int positivenumber = 0;
+        bool valid = false;
+
+        do
+        {
+            try
+            {
+                Console.Write("Enter a positive number: ");
+                positivenumber = int.Parse(Console.ReadLine());
+
+                if (positivenumber > 0)
+                {
+                    valid = true;
+                }
+                else
+                {
+                    Console.WriteLine("Number must be positive!");
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input!");
+            }
+
+        } while (!valid);
+
+        int totalsum = 0;
+
+        for (int i = 1; i <= positivenumber; i++)
+        {
+            totalsum = totalsum + i;
+        }
+
+        Console.WriteLine("Sum = " + totalsum);
     }
 }
