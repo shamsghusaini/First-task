@@ -135,5 +135,19 @@ class Program
 
 
             }
+            
+            // Task 8:
+            Console.WriteLine("Enter a Positive Number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            int evensum = 0;
+            for (int i = 1; i <= num; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    evensum = evensum + i;
+                }
+            }
+            Console.WriteLine("Sum of even Numbers: " + evensum);
     }
 }
