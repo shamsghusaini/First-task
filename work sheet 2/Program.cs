@@ -34,5 +34,28 @@ class Program
         {
             Console.WriteLine(Number + " x " + i + " = " + (Number * i));
         }
+        
+        // Task 4: 
+        string correctpassword = "Spark2026";
+        string password = " ";
+
+        while (password != correctpassword)
+        {
+            Console.WriteLine("Enter a password: ");
+            password = Console.ReadLine();
+
+
+            if (password != correctpassword)
+            {
+                Console.WriteLine("Incorrect password, try again");
+            }
+        }
+
+        Console.WriteLine("Access Granted");
+        
+
+
+
+
     }
 }
