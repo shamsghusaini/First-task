@@ -98,9 +98,42 @@ class Program
         {
             Console.WriteLine("Incorrect input! please enter number only!");
         }
+        // Task 7:
+            bool running = true;
+            while (running)
+            {
+                try
+                {
+                    Console.WriteLine("1. Say Hello");
+                    Console.WriteLine("2. Show Current ");
+                    Console.WriteLine("3. Exit");
+                    Console.WriteLine("Choose an option:");
+
+                    int choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Hello");
+                            break;
+                        case 2:
+                            Console.WriteLine("Good Day");
+                            break;
+                        case 3:
+                            Console.WriteLine("Existing..");
+                            running = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("Not a valid option");
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Not a valid option");
+                }
 
 
-
-
+            }
     }
 }
