@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-/*
+
 
         // Task 1:
         Console.WriteLine("Enter the First Number:");
@@ -157,7 +157,7 @@ class Program
             Console.WriteLine("First Position :" + firstposition);
             Console.WriteLine("Second Position :" + secondposition);
         }
-        */
+       
         
         // Task 11: 
         
@@ -198,5 +198,21 @@ class Program
         {
             Console.WriteLine("Verification Failed");
         }
+        
+        
+        // Task 12:
+        Console.WriteLine("Enter your Birthday (yyyy/MM/dd):");
+        DateTime birthday = DateTime.Parse(Console.ReadLine());
+        
+        DateTime today = DateTime.Today;
+        int age = today.Year - birthday.Year;
+        
+        if (today.Month < birthday.Month ||
+            (today.Month == birthday.Month && today.Day < birthday.Day))
+            {
+                age--;
+            }
+            Console.WriteLine("Your age is: " + age);
+            Console.WriteLine("Day of Birth:" + birthday.DayOfWeek);
     }
 }
