@@ -24,7 +24,7 @@ class Program
         double squareRoot = Math.Sqrt(number);
         
         Console.WriteLine("The square root of " + number + " is " + squareRoot);
-        Console.WriteLine("The square of " + number + " is " + squareRoot);
+        Console.WriteLine("The square of " + number + " is " + square);
         
         // Task 3: 
         Console.WriteLine("Enter Your Name");
@@ -45,6 +45,20 @@ class Program
         Console.WriteLine(" Trial End Date: " + subscriptionEnd.ToString("dd/MM/yyyy"));
         
         // Task 5: 
+        Console.WriteLine("Enter your Exam Score:" );
+        double score = double.Parse(Console.ReadLine());
+        
+        double roundedScore = Math.Round(score,2);
+        Console.WriteLine("Your score is: " + roundedScore);
+
+        if (roundedScore >= 60)
+        {
+            Console.WriteLine("Result: Pass");
+        }
+        else
+        {
+            Console.WriteLine("Result: Fail");
+        }
         
         
         
