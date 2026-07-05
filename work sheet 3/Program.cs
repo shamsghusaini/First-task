@@ -26,6 +26,14 @@ class Program
         Console.WriteLine("The square root of " + number + " is " + squareRoot);
         Console.WriteLine("The square of " + number + " is " + squareRoot);
         
+        // Task 3: 
+        Console.WriteLine(" Enter Your Name");
+        string name = Console.ReadLine();
+        
+        Console.WriteLine("Uppercase: " + name.ToUpper());
+        Console.WriteLine("Lowercase: " + name.ToLower());
+        Console.WriteLine("Number of Characters: " + name.Length); 
+        
         
         
         
