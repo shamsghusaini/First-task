@@ -122,10 +122,19 @@ class Program
         }
 
         Console.WriteLine("Expiry date: " + expiryDate.ToString("dd/MM/yyyy"));
-    }
+         }
         catch
             {
             Console.WriteLine("Invalid Input");
             }
-}
+        
+        
+        // Task 9:
+        Console.WriteLine("Enter a decimal number: ");
+        double decimalNumber = double.Parse(Console.ReadLine());
+        
+        Console.WriteLine("Rounded:  " + Math.Round (decimalNumber));
+        Console.WriteLine("Rounded up:  " + Math.Ceiling(decimalNumber));
+        Console.WriteLine("Rounded Down:  " + Math.Floor(decimalNumber));
+    }
 }
