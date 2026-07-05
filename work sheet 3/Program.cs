@@ -60,6 +60,27 @@ class Program
             Console.WriteLine("Result: Fail");
         }
         
+        // Task 6: 
+        Console.WriteLine("Enter your Password:");
+        String password = Console.ReadLine();
+
+        if (password.Length >= 8 && !password.ToLower().Contains("password"))
+        {
+            Console.WriteLine("Strong Password");
+        }
+        else
+            {
+            Console.WriteLine("Weak Password");
+            }
+        if (password.Length < 8)
+            {
+            Console.WriteLine("Rejected Password : must be at least 8 characters");
+            }
+
+        if (password.ToLower().Contains("password"))
+        {
+            Console.WriteLine("Rejected Password : must not contain the word 'password'");
+        }
         
         
     }
