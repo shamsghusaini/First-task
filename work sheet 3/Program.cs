@@ -39,10 +39,13 @@ class Program
         Console.WriteLine("Enter the number of free trial days: ");
         int days = int.Parse(Console.ReadLine());
         
-        DateTime today = DateTime.Today;
-        DateTime endDate = today.AddDays(days);
+        DateTime subscriptionStart = DateTime.Today;
+        DateTime subscriptionEnd = subscriptionStart.AddDays(days);
         
-        Console.WriteLine(" Trial End Date: " + endDate.ToString("dd/MM/yyyy"));
+        Console.WriteLine(" Trial End Date: " + subscriptionEnd.ToString("dd/MM/yyyy"));
+        
+        // Task 5: 
+        
         
         
     }
