@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-
+/*
 
         // Task 1:
         Console.WriteLine("Enter the First Number:");
@@ -156,6 +156,47 @@ class Program
         {
             Console.WriteLine("First Position :" + firstposition);
             Console.WriteLine("Second Position :" + secondposition);
+        }
+        */
+        
+        // Task 11: 
+        
+
+        Random random = new Random();
+        int otp = random.Next(1000, 10000);
+
+        Console.WriteLine("Your OTP is: " + otp);
+
+        int attempts = 1;
+
+        while (attempts <= 3)
+        {
+            try
+            {
+                Console.WriteLine("Enter the OTP:");
+                int userOtp = int.Parse(Console.ReadLine());
+
+                if (userOtp == otp)
+                {
+                    Console.WriteLine("Verified");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong OTP");
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Please enter numbers only.");
+            }
+
+            attempts++;
+        }
+
+        if (attempts > 3)
+        {
+            Console.WriteLine("Verification Failed");
         }
     }
 }
