@@ -17,7 +17,7 @@ class Program
         
         
         // Task 2: 
-        Console.WriteLine(" Enter Number");
+        Console.WriteLine("Enter Number");
         int number = int.Parse(Console.ReadLine());
         
         double square = Math.Pow(number, 2);
@@ -27,7 +27,7 @@ class Program
         Console.WriteLine("The square of " + number + " is " + squareRoot);
         
         // Task 3: 
-        Console.WriteLine(" Enter Your Name");
+        Console.WriteLine("Enter Your Name");
         string name = Console.ReadLine();
         
         Console.WriteLine("Uppercase: " + name.ToUpper());
@@ -35,6 +35,14 @@ class Program
         Console.WriteLine("Number of Characters: " + name.Length); 
         
         
+        // Task 4:
+        Console.WriteLine("Enter the number of free trial days: ");
+        int days = int.Parse(Console.ReadLine());
+        
+        DateTime today = DateTime.Today;
+        DateTime endDate = today.AddDays(days);
+        
+        Console.WriteLine(" Trial End Date: " + endDate.ToString("dd/MM/yyyy"));
         
         
     }
