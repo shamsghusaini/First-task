@@ -136,5 +136,26 @@ class Program
         Console.WriteLine("Rounded:  " + Math.Round (decimalNumber));
         Console.WriteLine("Rounded up:  " + Math.Ceiling(decimalNumber));
         Console.WriteLine("Rounded Down:  " + Math.Floor(decimalNumber));
+        
+        
+        // Task 10: 
+        Console.WriteLine("Enter a Full Sentence: ");
+        string fullSentence = Console.ReadLine();
+        
+        Console.WriteLine("Enter a word to search: ");
+        string searchWord = Console.ReadLine();
+        
+        int firstposition = fullSentence.IndexOf(searchWord);
+        int secondposition = fullSentence.LastIndexOf(searchWord);
+
+        if (firstposition == -1)
+        {
+            Console.WriteLine("Word Not Found");
+        }
+        else
+        {
+            Console.WriteLine("First Position :" + firstposition);
+            Console.WriteLine("Second Position :" + secondposition);
+        }
     }
 }
