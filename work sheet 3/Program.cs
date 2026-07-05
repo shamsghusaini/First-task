@@ -82,6 +82,23 @@ class Program
             Console.WriteLine("Rejected Password : must not contain the word 'password'");
         }
         
+        // Task 7: 
+        Console.WriteLine("Enter first Name: ");
+        string firstName = Console.ReadLine();
         
+        Console.WriteLine("Enter second Name: ");
+        string secondName = Console.ReadLine();
+        
+        firstName = firstName.Trim().ToUpper();
+        secondName = secondName.Trim().ToUpper();
+
+        if (firstName == secondName)
+        {
+            Console.WriteLine("Match");
+        }
+        else
+            {
+            Console.WriteLine("Not Match");
+            }
     }
 }
