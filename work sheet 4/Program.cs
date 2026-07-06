@@ -1,0 +1,17 @@
+﻿namespace work_sheet_4;
+
+class Program
+{
+    static void PrintWelcome(string name)
+    {
+        Console.WriteLine("Welcome " + name);
+        Console.WriteLine("We hope you enjoy learning");
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Enter your Name: ");
+        string name = Console.ReadLine();
+        PrintWelcome(name);
+    }
+}
