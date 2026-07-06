@@ -95,7 +95,7 @@ class Program
             Console.WriteLine("The number is Odd");
             }
     }
-    */
+    
     
     
     // Task 6:
@@ -123,5 +123,42 @@ class Program
         Console.WriteLine("Area: " + area);
         Console.WriteLine("Perimeter: " + perimeter);
     }
+    */
+    
+    // Task 7: 
+    static string GetGradeLetter(int score)
+    {
+        if (score >= 90)
+        {
+            return "A";
+        }
+        else if (score >= 80)
+        {
+            return "B";
+        }
+        else if (score >= 70)
+        {
+            return "C";
+        }
+        else if (score >= 60)
+        {
+            return "D";
+        }
+        else
+        {
+            return "F";
+        }
+    }
+
+    static void Main()
+    {
+        Console.Write("Enter your score: ");
+        int score = Convert.ToInt32(Console.ReadLine());
+
+        string grade = GetGradeLetter(score);
+        Console.WriteLine("your grade is " + grade);
+    }
+        
+    
     
 }
