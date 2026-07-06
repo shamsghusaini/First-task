@@ -3,6 +3,7 @@
 class Program
 {
     /*
+    // Task 1:
     static void PrintWelcome(string name)
     {
         Console.WriteLine("Welcome " + name);
@@ -15,7 +16,9 @@ class Program
         string name = Console.ReadLine();
         PrintWelcome(name);
     }
-*/
+    
+    
+    // Task 2: 
     static int Square(int number)
     {
         return number * number;
@@ -27,5 +30,23 @@ class Program
         int number = int.Parse(Console.ReadLine());
         int result = Square(number);
         Console.WriteLine("The square is " + result);
+    }
+    */
+    
+    // Task 3: 
+    static double CelsiusToFahrenheit(double celsius)
+    {
+        double fahrenheit = (celsius * 9 / 5) + 32;
+        return fahrenheit;
+    }
+
+    static void Main()
+    {
+        Console.Write("Enter temperature in Celsius: ");
+        double celsius = Convert.ToDouble(Console.ReadLine());
+
+        double result = CelsiusToFahrenheit(celsius);
+
+        Console.WriteLine("Temperature in Fahrenheit: " + result);
     }
 }
