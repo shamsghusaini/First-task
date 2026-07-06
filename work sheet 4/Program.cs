@@ -123,7 +123,7 @@ class Program
         Console.WriteLine("Area: " + area);
         Console.WriteLine("Perimeter: " + perimeter);
     }
-    */
+    
     
     // Task 7: 
     static string GetGradeLetter(int score)
@@ -159,6 +159,23 @@ class Program
         Console.WriteLine("your grade is " + grade);
     }
         
+    */
     
     
+    
+    // Task 8: 
+    static void Countdown(int number)
+    {
+        for (int i = number; i > 0; i--)
+        {
+            Console.WriteLine(i);
+        }
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Enter a starting number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        Countdown(number);
+    }
 }
