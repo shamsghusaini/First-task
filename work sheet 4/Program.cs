@@ -31,7 +31,7 @@ class Program
         int result = Square(number);
         Console.WriteLine("The square is " + result);
     }
-    */
+    
     
     // Task 3: 
     static double CelsiusToFahrenheit(double celsius)
@@ -48,5 +48,20 @@ class Program
         double result = CelsiusToFahrenheit(celsius);
 
         Console.WriteLine("Temperature in Fahrenheit: " + result);
+    }
+   
+   */  
+    // Task 4:
+    static void DisplayMenue()
+    {
+        Console.WriteLine("3 Option MENUE");
+        Console.WriteLine("1. Start");
+        Console.WriteLine("2. Help");
+        Console.WriteLine("3. Exist");
+    }
+
+    static void Main()
+    {
+        DisplayMenue();
     }
 }
