@@ -179,7 +179,7 @@ class Program
         Countdown(number);
     }
     
-    */
+    
     
     // Task 9 : 
     // Multiply two integers
@@ -211,4 +211,56 @@ class Program
         int result3 = Multiply(2, 3, 4);
         Console.WriteLine("Multiply(int, int, int): " + result3);
     }
+   */
+    
+    // Task 10 : 
+    
+    // Square Area
+    static double CalculateArea(double side)
+    {
+        return side * side;
+    }
+
+    // Rectangle Area
+    static double CalculateArea(double length, double width)
+    {
+        return length * width;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Choose a shape:");
+        Console.WriteLine("1. Square");
+        Console.WriteLine("2. Rectangle");
+
+        Console.Write("Enter your choice: ");
+        int choice = Convert.ToInt32(Console.ReadLine());
+
+        if (choice == 1)
+        {
+            Console.Write("Enter the side: ");
+            double side = Convert.ToDouble(Console.ReadLine());
+
+            double area = CalculateArea(side);
+
+            Console.WriteLine("Square Area = " + area);
+        }
+        else if (choice == 2)
+        {
+            Console.Write("Enter the length: ");
+            double length = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter the width: ");
+            double width = Convert.ToDouble(Console.ReadLine());
+
+            double area = CalculateArea(length, width);
+
+            Console.WriteLine("Rectangle Area = " + area);
+        }
+        else
+        {
+            Console.WriteLine("Invalid choice.");
+        }
+    }
+    
 }
