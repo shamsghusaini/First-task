@@ -50,7 +50,7 @@ class Program
         Console.WriteLine("Temperature in Fahrenheit: " + result);
     }
    
-   */  
+     
     // Task 4:
     static void DisplayMenue()
     {
@@ -63,5 +63,36 @@ class Program
     static void Main()
     {
         DisplayMenue();
+    }
+    
+    */
+    
+    // Task 5: 
+    static bool IsEven(int number)
+    {
+        if (number % 2 == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        bool result = IsEven(number);
+        
+        if (result)
+            {
+            Console.WriteLine("The number is Even");
+            }
+        else
+            {
+            Console.WriteLine("The number is Odd");
+            }
     }
 }
