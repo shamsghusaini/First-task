@@ -65,7 +65,7 @@ class Program
         DisplayMenue();
     }
     
-    */
+    
     
     // Task 5: 
     static bool IsEven(int number)
@@ -95,4 +95,33 @@ class Program
             Console.WriteLine("The number is Odd");
             }
     }
+    */
+    
+    
+    // Task 6:
+    static double CalculateArea(double length, double width)
+    {
+        return  length * width;
+    }
+
+    static double CalculatePerimeter(double length, double width)
+    {
+        return 2 * (length + width);
+    }
+
+    static void Main()
+    {
+        Console.Write("Enter length: ");
+        double length = Convert.ToDouble(Console.ReadLine());
+        
+        Console.Write("Enter width: ");
+        double width = Convert.ToDouble(Console.ReadLine());
+        
+        double area = CalculateArea(length, width);
+        double perimeter = CalculatePerimeter(length, width);
+        
+        Console.WriteLine("Area: " + area);
+        Console.WriteLine("Perimeter: " + perimeter);
+    }
+    
 }
