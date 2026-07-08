@@ -41,7 +41,7 @@ class Program
                }
         
            
-           */
+           
         // Task 3: 
         Stack<string> history = new Stack<string>();
 
@@ -59,5 +59,26 @@ class Program
         Console.WriteLine();
         Console.WriteLine("You went back from: " + removedPage);
         Console.WriteLine("Current page: " + history.Peek());
+        
+        
+        */
+        
+        // Task 4:
+        Queue<string> customers = new Queue<string>();
+
+        // Enter 3 customer names
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write($"Enter customer {i + 1}: ");
+            string name = Console.ReadLine();
+            customers.Enqueue(name);
+        }
+
+        // Serve the first customer
+        string servedCustomer = customers.Dequeue();
+
+        Console.WriteLine();
+        Console.WriteLine("Served customer: " + servedCustomer);
+        Console.WriteLine("Next customer: " + customers.Peek());
     }
 }
