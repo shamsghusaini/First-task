@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        
+        /*
        // Task 1 :
        int[] grades = new int[5];
 
@@ -39,5 +39,25 @@ class Program
                {
                Console.WriteLine( "- " + task);
                }
+        
+           
+           */
+        // Task 3: 
+        Stack<string> history = new Stack<string>();
+
+        
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write($"Enter website {i + 1}: ");
+            string website = Console.ReadLine();
+            history.Push(website);
+        }
+
+        // Go back once
+        string removedPage = history.Pop();
+
+        Console.WriteLine();
+        Console.WriteLine("You went back from: " + removedPage);
+        Console.WriteLine("Current page: " + history.Peek());
     }
 }
