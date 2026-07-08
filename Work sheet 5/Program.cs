@@ -169,7 +169,7 @@ class Program
         Console.WriteLine("3rd place: " + scores[2]);
         
         
-        */
+        
         // Task 8 
         Stack<string> actions = new Stack<string>();
 
@@ -204,5 +204,51 @@ class Program
         {
             Console.WriteLine(item);
         }
+        
+        */
+        // Task 9 
+        
+        List<int> grades = new List<int>();
+
+        Console.Write("How many grades do you want to enter? ");
+        int number = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 0; i < number; i++)
+        {
+            Console.Write($"Enter grade {i + 1}: ");
+            int grade = Convert.ToInt32(Console.ReadLine());
+            grades.Add(grade);
+        }
+
+        double average = CalculateAverage(grades);
+        int failingGrade = FindFirstFailing(grades);
+
+        Console.WriteLine("\nAverage: " + average);
+
+        if (failingGrade == 0)
+        {
+            Console.WriteLine("No failing grades.");
+        }
+        else
+        {
+            Console.WriteLine("First failing grade: " + failingGrade);
+        }
     }
-}
+
+    static double CalculateAverage(List<int> grades)
+    {
+        int sum = 0;
+
+        foreach (int grade in grades)
+        {
+            sum += grade;
+        }
+
+        return (double)sum / grades.Count;
+    }
+
+     static int FindFirstFailing(List<int> grades)
+    {
+        return grades.Find(x => x < 60);
+    }
+    }
