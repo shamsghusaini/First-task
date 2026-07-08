@@ -145,7 +145,8 @@ class Program
         {
             Console.WriteLine("- " + product);
         }
-        */
+        
+        
         // Task 7
         List<int> scores = new List<int>();
 
@@ -166,5 +167,42 @@ class Program
         Console.WriteLine("1st place: " + scores[0]);
         Console.WriteLine("2nd place: " + scores[1]);
         Console.WriteLine("3rd place: " + scores[2]);
+        
+        
+        */
+        // Task 8 
+        Stack<string> actions = new Stack<string>();
+
+        string action = "";
+
+        // Add actions
+        while (action != "stop")
+        {
+            Console.Write("Enter an action (or type 'stop'): ");
+            action = Console.ReadLine();
+
+            if (action != "stop")
+            {
+                actions.Push(action);
+            }
+        }
+
+        // Undo twice
+        if (actions.Count > 0)
+        {
+            Console.WriteLine("Undone: " + actions.Pop());
+        }
+
+        if (actions.Count > 0)
+        {
+            Console.WriteLine("Undone: " + actions.Pop());
+        }
+
+        // Print remaining actions
+        Console.WriteLine("\nRemaining actions:");
+        foreach (string item in actions)
+        {
+            Console.WriteLine(item);
+        }
     }
 }
