@@ -107,7 +107,7 @@ class Program
         Console.WriteLine("Highest grade: " + highest);
         Console.WriteLine("Average grade: " + average);
         
-        */
+        
         
         // Task 6: 
         List<string> shoppingList = new List<string>();
@@ -145,7 +145,26 @@ class Program
         {
             Console.WriteLine("- " + product);
         }
-        
-        
+        */
+        // Task 7
+        List<int> scores = new List<int>();
+
+        // Enter 5 scores
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Enter score {i + 1}: ");
+            int score = Convert.ToInt32(Console.ReadLine());
+            scores.Add(score);
+        }
+
+        // Sort from highest to lowest
+        scores.Sort();
+        scores.Reverse();
+
+        // Print the podium
+        Console.WriteLine("\nHigh Score Podium:");
+        Console.WriteLine("1st place: " + scores[0]);
+        Console.WriteLine("2nd place: " + scores[1]);
+        Console.WriteLine("3rd place: " + scores[2]);
     }
 }
