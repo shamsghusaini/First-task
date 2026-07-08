@@ -61,7 +61,7 @@ class Program
         Console.WriteLine("Current page: " + history.Peek());
         
         
-        */
+        
         
         // Task 4:
         Queue<string> customers = new Queue<string>();
@@ -80,5 +80,31 @@ class Program
         Console.WriteLine();
         Console.WriteLine("Served customer: " + servedCustomer);
         Console.WriteLine("Next customer: " + customers.Peek());
+        
+        */
+        
+        // Task 5:
+        int[] grades = new int[5];
+        int sum = 0;
+
+        // Input grades
+        for (int i = 0; i < grades.Length; i++)
+        {
+            Console.Write($"Enter grade {i + 1}: ");
+            grades[i] = Convert.ToInt32(Console.ReadLine());
+            sum += grades[i];
+        }
+
+        // Sort the array
+        Array.Sort(grades);
+
+        int lowest = grades[0];
+        int highest = grades[grades.Length - 1];
+        double average = (double)sum / grades.Length;
+
+        Console.WriteLine();
+        Console.WriteLine("Lowest grade: " + lowest);
+        Console.WriteLine("Highest grade: " + highest);
+        Console.WriteLine("Average grade: " + average);
     }
 }
