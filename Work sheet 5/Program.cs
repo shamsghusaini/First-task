@@ -81,7 +81,7 @@ class Program
         Console.WriteLine("Served customer: " + servedCustomer);
         Console.WriteLine("Next customer: " + customers.Peek());
         
-        */
+        
         
         // Task 5:
         int[] grades = new int[5];
@@ -106,5 +106,46 @@ class Program
         Console.WriteLine("Lowest grade: " + lowest);
         Console.WriteLine("Highest grade: " + highest);
         Console.WriteLine("Average grade: " + average);
+        
+        */
+        
+        // Task 6: 
+        List<string> shoppingList = new List<string>();
+
+        string item = "";
+
+        // Add items
+        while (item != "done")
+        {
+            Console.Write("Enter an item (or type 'done' to finish): ");
+            item = Console.ReadLine();
+
+            if (item != "done")
+            {
+                shoppingList.Add(item);
+            }
+        }
+
+        // Print before removal
+        Console.WriteLine("\nShopping List:");
+        foreach (string product in shoppingList)
+        {
+            Console.WriteLine("- " + product);
+        }
+
+        // Remove an item
+        Console.Write("\nEnter an item to remove: ");
+        string removeItem = Console.ReadLine();
+
+        shoppingList.Remove(removeItem);
+
+        // Print after removal
+        Console.WriteLine("\nUpdated Shopping List:");
+        foreach (string product in shoppingList)
+        {
+            Console.WriteLine("- " + product);
+        }
+        
+        
     }
 }
