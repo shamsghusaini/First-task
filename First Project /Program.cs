@@ -44,6 +44,10 @@ class Program
                     AddAccount();
                     break;
 
+                case 2:
+                    DepositMoney();
+                    break;
+
                 case 8:
                     exitApp = true;
                     Console.WriteLine("Thank you for banking with Spark Bank. Goodbye!");
@@ -87,5 +91,32 @@ class Program
         Console.WriteLine($"Customer Name: {name}");
         Console.WriteLine($"Account Number: {accountNumber}");
         Console.WriteLine($"Balance: {balance}");
+    }
+    static void DepositMoney()
+    {
+        Console.Write("Enter account number: ");
+        string accountNumber = Console.ReadLine();
+
+        int index = accountNumbers.IndexOf(accountNumber);
+
+        if (index == -1)
+        {
+            Console.WriteLine("Account not found.");
+            return;
+        }
+
+        Console.Write("Enter deposit amount: ");
+        double amount = Convert.ToDouble(Console.ReadLine());
+
+        if (amount <= 0)
+        {
+            Console.WriteLine("Amount must be positive.");
+            return;
+        }
+
+        balances[index] += amount;
+
+        Console.WriteLine($"Deposit successful!");
+        Console.WriteLine($"New Balance: {balances[index]}");
     }
 }
