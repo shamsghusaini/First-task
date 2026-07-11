@@ -21,8 +21,8 @@ class Program
             Console.WriteLine("3. Withdraw Money");
             Console.WriteLine("4. Show Balance");
             Console.WriteLine("5. Transfer Amount");
-            Console.WriteLine("6. Custom Service");
-            Console.WriteLine("7. Custom Service");
+            Console.WriteLine("6. List All Accounts");
+            Console.WriteLine("7. Close Account");
             Console.WriteLine("8. Exit");
             Console.Write("Choose an option: ");
 
@@ -58,6 +58,14 @@ class Program
                 
                 case 5:
                     TransferAmount();
+                    break;
+                
+                case 6:
+                    ListAllAccounts();
+                    break;
+                
+                case 7:
+                    CloseAccount();
                     break;
 
                 case 8:
@@ -221,5 +229,42 @@ class Program
         Console.WriteLine("Transfer successful!");
         Console.WriteLine($"Sender New Balance: {balances[senderIndex]}");
         Console.WriteLine($"Receiver New Balance: {balances[receiverIndex]}");
+    }
+    static void ListAllAccounts()
+    {
+        if (customerNames.Count == 0)
+        {
+            Console.WriteLine("No accounts found.");
+            return;
+        }
+
+        Console.WriteLine("\n===== All Accounts =====");
+
+        for (int i = 0; i < customerNames.Count; i++)
+        {
+            Console.WriteLine($"Customer: {customerNames[i]}");
+            Console.WriteLine($"Account Number: {accountNumbers[i]}");
+            Console.WriteLine($"Balance: {balances[i]}");
+            Console.WriteLine("------------------------");
+        }
+    }
+    static void CloseAccount()
+    {
+        Console.Write("Enter account number to close: ");
+        string accountNumber = Console.ReadLine();
+
+        int index = accountNumbers.IndexOf(accountNumber);
+
+        if (index == -1)
+        {
+            Console.WriteLine("Account not found.");
+            return;
+        }
+
+        customerNames.RemoveAt(index);
+        accountNumbers.RemoveAt(index);
+        balances.RemoveAt(index);
+
+        Console.WriteLine("Account closed successfully!");
     }
 }
