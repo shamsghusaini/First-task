@@ -55,6 +55,10 @@ class Program
                 case 4:
                     ShowBalance();
                     break;
+                
+                case 5:
+                    TransferAmount();
+                    break;
 
                 case 8:
                     exitApp = true;
@@ -179,5 +183,43 @@ class Program
         Console.WriteLine($"Balance: {balances[index]}");
     }
     
-    
+    static void TransferAmount()
+    {
+        Console.Write("Enter sender account number: ");
+        string senderAccount = Console.ReadLine();
+
+        Console.Write("Enter receiver account number: ");
+        string receiverAccount = Console.ReadLine();
+
+        int senderIndex = accountNumbers.IndexOf(senderAccount);
+        int receiverIndex = accountNumbers.IndexOf(receiverAccount);
+
+        if (senderIndex == -1 || receiverIndex == -1)
+        {
+            Console.WriteLine("One or both accounts were not found.");
+            return;
+        }
+
+        Console.Write("Enter transfer amount: ");
+        double amount = Convert.ToDouble(Console.ReadLine());
+
+        if (amount <= 0)
+        {
+            Console.WriteLine("Amount must be positive.");
+            return;
+        }
+
+        if (amount > balances[senderIndex])
+        {
+            Console.WriteLine("Insufficient balance.");
+            return;
+        }
+
+        balances[senderIndex] -= amount;
+        balances[receiverIndex] += amount;
+
+        Console.WriteLine("Transfer successful!");
+        Console.WriteLine($"Sender New Balance: {balances[senderIndex]}");
+        Console.WriteLine($"Receiver New Balance: {balances[receiverIndex]}");
+    }
 }
