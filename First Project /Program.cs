@@ -47,6 +47,10 @@ class Program
                 case 2:
                     DepositMoney();
                     break;
+                
+                case 3:
+                    WithdrawMoney();
+                    break;
 
                 case 8:
                     exitApp = true;
@@ -117,6 +121,39 @@ class Program
         balances[index] += amount;
 
         Console.WriteLine($"Deposit successful!");
+        Console.WriteLine($"New Balance: {balances[index]}");
+    }
+    static void WithdrawMoney()
+    {
+        Console.Write("Enter account number: ");
+        string accountNumber = Console.ReadLine();
+
+        int index = accountNumbers.IndexOf(accountNumber);
+
+        if (index == -1)
+        {
+            Console.WriteLine("Account not found.");
+            return;
+        }
+
+        Console.Write("Enter withdrawal amount: ");
+        double amount = Convert.ToDouble(Console.ReadLine());
+
+        if (amount <= 0)
+        {
+            Console.WriteLine("Amount must be positive.");
+            return;
+        }
+
+        if (amount > balances[index])
+        {
+            Console.WriteLine("Insufficient balance.");
+            return;
+        }
+
+        balances[index] -= amount;
+
+        Console.WriteLine("Withdrawal successful!");
         Console.WriteLine($"New Balance: {balances[index]}");
     }
 }
