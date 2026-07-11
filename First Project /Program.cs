@@ -51,6 +51,10 @@ class Program
                 case 3:
                     WithdrawMoney();
                     break;
+                
+                case 4:
+                    ShowBalance();
+                    break;
 
                 case 8:
                     exitApp = true;
@@ -156,4 +160,24 @@ class Program
         Console.WriteLine("Withdrawal successful!");
         Console.WriteLine($"New Balance: {balances[index]}");
     }
+    static void ShowBalance()
+    {
+        Console.Write("Enter account number: ");
+        string accountNumber = Console.ReadLine();
+
+        int index = accountNumbers.IndexOf(accountNumber);
+
+        if (index == -1)
+        {
+            Console.WriteLine("Account not found.");
+            return;
+        }
+
+        Console.WriteLine("\nAccount Details:");
+        Console.WriteLine($"Customer Name: {customerNames[index]}");
+        Console.WriteLine($"Account Number: {accountNumbers[index]}");
+        Console.WriteLine($"Balance: {balances[index]}");
+    }
+    
+    
 }
