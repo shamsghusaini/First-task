@@ -268,6 +268,29 @@ class Program
                     {
                         Console.WriteLine("Invalid choice.");
                     }
+                    
+                    break;
+                case 5:
+                    Console.WriteLine("Choose a product:");
+                    Console.WriteLine("1. Wireless Mouse");
+                    Console.WriteLine("2. Mechanical Keyboard");
+
+                    int productChoice = int.Parse(Console.ReadLine());
+
+                    if (productChoice == 1)
+                    {
+                        double value = product1.GetInventoryValue();
+                        Console.WriteLine($"Inventory Value: {value}");
+                    }
+                    else if (productChoice == 2)
+                    {
+                        double value = product2.GetInventoryValue();
+                        Console.WriteLine($"Inventory Value: {value}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice.");
+                    }
 
                     break;
 
