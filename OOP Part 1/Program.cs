@@ -216,6 +216,33 @@ class Program
                     }
 
                     break;
+                
+                case 3:
+                    Console.WriteLine("Choose an account:");
+                    Console.WriteLine("1. Shams");
+                    Console.WriteLine("2. Ali");
+
+                    int depositChoice = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter the amount to deposit: ");
+                    double amount = double.Parse(Console.ReadLine());
+
+                    if (depositChoice == 1)
+                    {
+                        account1.Deposit(amount);
+                        Console.WriteLine($"{account1.HolderName}'s new balance is: {account1.Balance}");
+                    }
+                    else if (depositChoice == 2)
+                    {
+                        account2.Deposit(amount);
+                        Console.WriteLine($"{account2.HolderName}'s new balance is: {account2.Balance}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice.");
+                    }
+
+                    break;
 
                 case 7:
                     if (account1.Balance > account2.Balance)
