@@ -323,11 +323,68 @@ class Program
 
                 case 7:
                     if (account1.Balance > account2.Balance)
+                    {
                         Console.WriteLine($"{account1.HolderName} has more money.");
+                    }
                     else if (account2.Balance > account1.Balance)
+                    {
                         Console.WriteLine($"{account2.HolderName} has more money.");
+                    }
                     else
-                        Console.WriteLine("Both accounts are equal.");
+                    {
+                        Console.WriteLine("Both accounts have the same balance.");
+                    }
+
+                    break;
+                case 8:
+                    Console.WriteLine("Choose a product:");
+                    Console.WriteLine("1. Wireless Mouse");
+                    Console.WriteLine("2. Mechanical Keyboard");
+
+                    int restockChoice = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter quantity to add: ");
+                    int quantity = int.Parse(Console.ReadLine());
+
+                    if (restockChoice == 1)
+                    {
+                        product1.Restock(quantity);
+
+                        if (product1.StockQuantity < 10)
+                        {
+                            Console.WriteLine("Stock Level: Low");
+                        }
+                        else if (product1.StockQuantity <= 49)
+                        {
+                            Console.WriteLine("Stock Level: Moderate");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Stock Level: Well Stocked");
+                        }
+                    }
+                    else if (restockChoice == 2)
+                    {
+                        product2.Restock(quantity);
+
+                        if (product2.StockQuantity < 10)
+                        {
+                            Console.WriteLine("Stock Level: Low");
+                        }
+                        else if (product2.StockQuantity <= 49)
+                        {
+                            Console.WriteLine("Stock Level: Moderate");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Stock Level: Well Stocked");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice.");
+                    }
+
                     break;
 
                 case 20:
