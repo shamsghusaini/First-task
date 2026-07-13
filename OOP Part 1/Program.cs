@@ -7,6 +7,12 @@ class BankAccount
     public string HolderName;
     public double Balance;
 
+    public BankAccount(int accountNumber, string holderName, double balance)
+    {
+        AccountNumber = accountNumber;
+        HolderName = holderName;
+        Balance = balance;
+    }
     public void Deposit(double amount)
     {
         Balance += amount;
@@ -112,15 +118,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        BankAccount account1 = new BankAccount();
-        account1.AccountNumber = 1163;
-        account1.HolderName = "Shams";
-        account1.Balance = 120;
+        BankAccount account1 =
+            new BankAccount(1163, "Shams", 120);
 
-        BankAccount account2 = new BankAccount();
-        account2.AccountNumber = 15203;
-        account2.HolderName = "Ali";
-        account2.Balance = 63;
+        BankAccount account2 =
+            new BankAccount(15203, "Ali", 63);
+        
 
         Student student1 = new Student();
         student1.Name = "Ali";
@@ -480,7 +483,25 @@ class Program
                     }
 
                     break;
+                
+                case 16:
+                    Console.Write("Enter account number: ");
+                    int number = int.Parse(Console.ReadLine());
 
+                    Console.Write("Enter holder name: ");
+                    string name = Console.ReadLine();
+
+                    Console.Write("Enter balance: ");
+                    double balance = double.Parse(Console.ReadLine());
+
+                    BankAccount newAccount =
+                        new BankAccount(number, name, balance);
+
+                    Console.WriteLine($"Account Number: {newAccount.AccountNumber}");
+                    Console.WriteLine($"Holder Name: {newAccount.HolderName}");
+                    Console.WriteLine($"Balance: {newAccount.Balance}");
+
+                    break;
                 case 20:
                     Console.WriteLine("Goodbye!");
                     break;
