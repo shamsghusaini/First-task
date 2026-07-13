@@ -189,6 +189,33 @@ class Program
                     }
 
                     break;
+                
+                case 2:
+                    Console.WriteLine("Choose a student:");
+                    Console.WriteLine("1. Ali");
+                    Console.WriteLine("2. Ahmed");
+
+                    int studentChoice = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter the new address: ");
+                    string newAddress = Console.ReadLine();
+
+                    if (studentChoice == 1)
+                    {
+                        student1.Address = newAddress;
+                        Console.WriteLine($"Ali's new address is: {student1.Address}");
+                    }
+                    else if (studentChoice == 2)
+                    {
+                        student2.Address = newAddress;
+                        Console.WriteLine($"Ahmed's new address is: {student2.Address}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice.");
+                    }
+
+                    break;
 
                 case 7:
                     if (account1.Balance > account2.Balance)
