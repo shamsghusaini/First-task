@@ -386,6 +386,59 @@ class Program
                     }
 
                     break;
+                
+                case 9:
+                    Console.WriteLine("Choose the source account:");
+                    Console.WriteLine("1. Shams");
+                    Console.WriteLine("2. Ali");
+
+                    int sourceChoice = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Choose the destination account:");
+                    Console.WriteLine("1. Shams");
+                    Console.WriteLine("2. Ali");
+
+                    int destinationChoice = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter transfer amount: ");
+                    double transferAmount = double.Parse(Console.ReadLine());
+
+                    if (sourceChoice == destinationChoice)
+                    {
+                        Console.WriteLine("Source and destination accounts cannot be the same.");
+                    }
+                    else if (sourceChoice == 1 && destinationChoice == 2)
+                    {
+                        if (account1.Balance >= transferAmount)
+                        {
+                            account1.Withdraw(transferAmount);
+                            account2.Deposit(transferAmount);
+                            Console.WriteLine("Transfer completed successfully.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Transfer failed. Insufficient balance.");
+                        }
+                    }
+                    else if (sourceChoice == 2 && destinationChoice == 1)
+                    {
+                        if (account2.Balance >= transferAmount)
+                        {
+                            account2.Withdraw(transferAmount);
+                            account1.Deposit(transferAmount);
+                            Console.WriteLine("Transfer completed successfully.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Transfer failed. Insufficient balance.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid account choice.");
+                    }
+
+                    break;
 
                 case 20:
                     Console.WriteLine("Goodbye!");
