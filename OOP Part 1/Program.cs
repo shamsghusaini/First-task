@@ -439,6 +439,47 @@ class Program
                     }
 
                     break;
+                
+                case 10:
+                    Console.WriteLine("Choose a student:");
+                    Console.WriteLine("1. Ali");
+                    Console.WriteLine("2. Ahmed");
+
+                    int gradeChoice = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter the new grade: ");
+                    string input = Console.ReadLine();
+
+                    if (int.TryParse(input, out int newGrade))
+                    {
+                        if (newGrade >= 0 && newGrade <= 100)
+                        {
+                            if (gradeChoice == 1)
+                            {
+                                student1.Grade = newGrade;
+                                Console.WriteLine("Grade updated successfully.");
+                            }
+                            else if (gradeChoice == 2)
+                            {
+                                student2.Grade = newGrade;
+                                Console.WriteLine("Grade updated successfully.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid student choice.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Grade must be between 0 and 100.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number.");
+                    }
+
+                    break;
 
                 case 20:
                     Console.WriteLine("Goodbye!");
