@@ -293,6 +293,33 @@ class Program
                     }
 
                     break;
+                
+                case 6:
+                    Console.WriteLine("Choose a student:");
+                    Console.WriteLine("1. Ali");
+                    Console.WriteLine("2. Ahmed");
+
+                    int registerChoice = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter the email: ");
+                    string studentEmail = Console.ReadLine();
+
+                    if (registerChoice == 1)
+                    {
+                        student1.Register(studentEmail);
+                        Console.WriteLine($"{student1.Name} has been registered successfully.");
+                    }
+                    else if (registerChoice == 2)
+                    {
+                        student2.Register(studentEmail);
+                        Console.WriteLine($"{student2.Name} has been registered successfully.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice.");
+                    }
+
+                    break;
 
                 case 7:
                     if (account1.Balance > account2.Balance)
