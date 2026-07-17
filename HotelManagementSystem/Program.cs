@@ -17,14 +17,32 @@ class Room
         IsAvailable = isAvailable;
     }
 }
+class Guest
+{
+    public string GuestId { get; set; }
+    public string GuestName { get; set; }
+    public string RoomNumber { get; set; }
+    public string CheckInDate { get; set; }
+    public int TotalNights { get; set; }
 
+    public Guest(string guestId, string guestName, string roomNumber, string checkInDate, int totalNights)
+    {
+        GuestId = guestId;
+        GuestName = guestName;
+        RoomNumber = roomNumber;
+        CheckInDate = checkInDate;
+        TotalNights = totalNights;
+    }
+}
 class Program
 {
     static void Main(string[] args)
     {
         List<Room> rooms = new List<Room>();
+        List<Guest> guests = new List<Guest>();
 
         AddNewRoom(rooms);
+        RegisterNewGuest(guests);
     }
 
     static void AddNewRoom(List<Room> rooms)
@@ -66,5 +84,35 @@ class Program
         Console.WriteLine($"Price Per Night: {price}");
         Console.WriteLine($"Available: Yes");
         Console.WriteLine($"Total Rooms: {rooms.Count}");
+    }
+    static void RegisterNewGuest(List<Guest> guests)
+    {
+        Console.Write("Enter guest name: ");
+        string guestName = Console.ReadLine();
+
+        Console.Write("Enter check-in date: ");
+        string checkInDate = Console.ReadLine();
+
+        Console.Write("Enter total nights: ");
+        int totalNights = int.Parse(Console.ReadLine());
+
+        if (totalNights <= 0)
+        {
+            Console.WriteLine("Number of nights must be positive.");
+            return;
+        }
+
+        string guestId = "G" + (guests.Count + 1).ToString("000");
+
+        Guest guest = new Guest(guestId, guestName, "Not Assigned", checkInDate, totalNights);
+
+        guests.Add(guest);
+
+        Console.WriteLine("\nGuest registered successfully!");
+        Console.WriteLine($"Guest ID: {guest.GuestId}");
+        Console.WriteLine($"Guest Name: {guest.GuestName}");
+        Console.WriteLine($"Check-In Date: {guest.CheckInDate}");
+        Console.WriteLine($"Total Nights: {guest.TotalNights}");
+        Console.WriteLine($"Room Number: {guest.RoomNumber}");
     }
 }
