@@ -67,6 +67,10 @@ class Program
                 case 2:
                     RegisterNewGuest(guests);
                     break;
+                
+                case 3:
+                    BookRoom(rooms, guests);
+                    break;
 
                 case 0:
                     return;
@@ -126,5 +130,48 @@ class Program
             Console.WriteLine("\nGuest registered successfully.");
             Console.WriteLine("Guest ID: " + guest.GuestId);
         }
+    }
+    static void BookRoom(List<Room> rooms, List<Guest> guests)
+    {
+        Console.Write("\nEnter Guest ID: ");
+        string guestId = Console.ReadLine();
+
+        Guest guest = guests.FirstOrDefault(g => g.GuestId == guestId);
+
+        if (guest == null)
+        {
+            Console.WriteLine("Guest not found.");
+            return;
+        }
+
+        Console.Write("Enter Room Number: ");
+        int roomNumber = int.Parse(Console.ReadLine());
+
+        Room room = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+
+        if (room == null)
+        {
+            Console.WriteLine("Room not found.");
+            return;
+        }
+
+        if (!room.IsAvailable)
+        {
+            Console.WriteLine("Room is already booked.");
+            return;
+        }
+
+        guest.RoomNumber = room.RoomNumber.ToString();
+        room.IsAvailable = false;
+
+        double totalCost = room.PricePerNight * guest.TotalNights;
+
+        Console.WriteLine("\n===== Booking Successful =====");
+        Console.WriteLine("Guest ID: " + guest.GuestId);
+        Console.WriteLine("Guest Name: " + guest.GuestName);
+        Console.WriteLine("Room Number: " + room.RoomNumber);
+        Console.WriteLine("Room Type: " + room.RoomType);
+        Console.WriteLine("Total Nights: " + guest.TotalNights);
+        Console.WriteLine("Total Cost: " + totalCost);
     }
     }
