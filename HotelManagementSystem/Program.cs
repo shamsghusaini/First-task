@@ -75,6 +75,10 @@ class Program
                 case 4:
                     ViewAllRooms(rooms);
                     break;
+                
+                case 5:
+                    ViewAllGuests(guests);
+                    break;
 
                 case 0:
                     return;
@@ -207,6 +211,27 @@ class Program
             Console.WriteLine("Room Type: " + room.RoomType);
             Console.WriteLine("Price Per Night: " + room.PricePerNight);
             Console.WriteLine("Status: " + status);
+        }
+    }
+    static void ViewAllGuests(List<Guest> guests)
+    {
+        if (guests.Count == 0)
+        {
+            Console.WriteLine("No guests have been registered yet.");
+            return;
+        }
+
+        Console.WriteLine("\n===== ALL GUESTS =====");
+        Console.WriteLine("Total Guests: " + guests.Count);
+
+        foreach (Guest guest in guests.OrderBy(g => g.GuestName))
+        {
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Guest ID: " + guest.GuestId);
+            Console.WriteLine("Guest Name: " + guest.GuestName);
+            Console.WriteLine("Room Number: " + guest.RoomNumber);
+            Console.WriteLine("Check-In Date: " + guest.CheckInDate);
+            Console.WriteLine("Total Nights: " + guest.TotalNights);
         }
     }
 }
