@@ -71,6 +71,10 @@ class Program
                 case 3:
                     BookRoom(rooms, guests);
                     break;
+                
+                case 4:
+                    ViewAllRooms(rooms);
+                    break;
 
                 case 0:
                     return;
@@ -174,4 +178,35 @@ class Program
         Console.WriteLine("Total Nights: " + guest.TotalNights);
         Console.WriteLine("Total Cost: " + totalCost);
     }
+    static void ViewAllRooms(List<Room> rooms)
+    {
+        if (rooms.Count == 0)
+        {
+            Console.WriteLine("No rooms have been added yet.");
+            return;
+        }
+
+        Console.WriteLine("\n===== ALL ROOMS =====");
+        Console.WriteLine("Total Rooms: " + rooms.Count);
+
+        foreach (Room room in rooms.OrderBy(r => r.RoomNumber))
+        {
+            string status;
+
+            if (room.IsAvailable)
+            {
+                status = "Available";
+            }
+            else
+            {
+                status = "Booked";
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Room Number: " + room.RoomNumber);
+            Console.WriteLine("Room Type: " + room.RoomType);
+            Console.WriteLine("Price Per Night: " + room.PricePerNight);
+            Console.WriteLine("Status: " + status);
+        }
     }
+}
