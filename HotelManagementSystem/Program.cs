@@ -109,6 +109,10 @@ class Program
                 case 10:
                     RoomTypeBreakdownReport(rooms);
                     break;
+                
+                case 11:
+                    CheckOutGuest(rooms, guests);
+                    break;
 
                 case 0:
                     return;
@@ -515,6 +519,67 @@ class Program
         else
         {
             Console.WriteLine("\nNo rooms available.");
+        }
+    }
+    static void CheckOutGuest(List<Room> rooms, List<Guest> guests)
+    {
+        Console.Write("Enter Guest ID: ");
+        string guestId = Console.ReadLine();
+
+        Guest guest = guests.FirstOrDefault(g => g.GuestId == guestId);
+
+        if (guest == null)
+        {
+            Console.WriteLine("Guest not found.");
+            return;
+        }
+
+        if (guest.RoomNumber == "Not Assigned")
+        {
+            Console.WriteLine("This guest has no active booking.");
+            return;
+        }
+
+        Room room = rooms.FirstOrDefault(r => r.RoomNumber.ToString() == guest.RoomNumber);
+
+        if (room == null)
+        {
+            Console.WriteLine("Room not found.");
+            return;
+        }
+
+        double totalCost = room.PricePerNight * guest.TotalNights;
+
+        Console.WriteLine("\n===== FINAL BILL =====");
+        Console.WriteLine("Guest Name: " + guest.GuestName);
+        Console.WriteLine("Room Number: " + room.RoomNumber);
+        Console.WriteLine("Room Type: " + room.RoomType);
+        Console.WriteLine("Check-In Date: " + guest.CheckInDate);
+        Console.WriteLine("Total Nights: " + guest.TotalNights);
+        Console.WriteLine("Price Per Night: " + room.PricePerNight);
+        Console.WriteLine("Total Cost: " + totalCost);
+
+        Console.Write("\nConfirm Checkout (Y/N): ");
+        string choice = Console.ReadLine();
+
+        if (choice.ToUpper() == "Y")
+        {
+            room.IsAvailable = true;
+
+            guests.Remove(guest);
+
+            Console.WriteLine("\nGuest checked out successfully.");
+            Console.WriteLine("Total Guests: " + guests.Count);
+            Console.WriteLine("Total Rooms: " + rooms.Count);
+
+            bool roomAvailable = rooms.Any(r =>
+                r.RoomNumber == room.RoomNumber && r.IsAvailable);
+
+            Console.WriteLine("Room Available: " + roomAvailable);
+        }
+        else
+        {
+            Console.WriteLine("Checkout cancelled.");
         }
     }
     
