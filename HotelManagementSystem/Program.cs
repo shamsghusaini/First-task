@@ -53,6 +53,16 @@ class Program
             Console.WriteLine("3. Book a Room");
             Console.WriteLine("4. View All Rooms");
             Console.WriteLine("5. View All Guests");
+            Console.WriteLine("6. Search & Filter Rooms");
+            Console.WriteLine("7. Guest & Booking Statistics");
+            Console.WriteLine("8. Update Room Price");
+            Console.WriteLine("9. Guest Lookup by Name");
+            Console.WriteLine("10. Room Type Breakdown Report");
+            Console.WriteLine("11. Check Out a Guest");
+            Console.WriteLine("12. Remove Unavailable Rooms");
+            Console.WriteLine("13. Extend Guest Stay");
+            Console.WriteLine("14. Highest Revenue Booking");
+            Console.WriteLine("15. Guest Pagination Viewer");
             Console.WriteLine("0. Exit");
 
             Console.Write("\nEnter your choice: ");
@@ -82,6 +92,10 @@ class Program
                 
                 case 6:
                     SearchFilterRooms(rooms);
+                    break;
+                
+                case 7:
+                    GuestBookingStatistics(rooms, guests);
                     break;
 
                 case 0:
@@ -373,5 +387,31 @@ class Program
 
         Console.WriteLine("Most Expensive Price: " +
                           rooms.Max(r => r.PricePerNight).ToString("F2"));
+    }
+    static void GuestBookingStatistics(List<Room> rooms, List<Guest> guests)
+    {
+        Console.WriteLine("\n===== GUEST & BOOKING STATISTICS =====");
+
+        Console.WriteLine("Total Registered Guests: " + guests.Count());
+
+        Console.WriteLine("Guests With Booking: " +
+                          guests.Count(g => g.RoomNumber != "Not Assigned"));
+
+        Console.WriteLine("Total Rooms: " + rooms.Count());
+
+        Console.WriteLine("Booked Rooms: " +
+                          rooms.Count(r => !r.IsAvailable));
+
+        if (!guests.Any(g => g.RoomNumber != "Not Assigned"))
+        {
+            Console.WriteLine("\nNo active bookings recorded.");
+            return;
+        }
+
+        Console.WriteLine("Average Nights: " +
+                          guests
+                              .Where(g => g.RoomNumber != "Not Assigned")
+                              .Average(g => g.TotalNights)
+                              .ToString("F2"));
     }
 }
