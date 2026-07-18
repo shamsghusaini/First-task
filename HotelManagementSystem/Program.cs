@@ -125,6 +125,10 @@ class Program
                 case 14:
                     HighestRevenueBooking(rooms, guests);
                     break;
+                
+                case 15:
+                    GuestPaginationViewer(guests);
+                    break;
 
                 case 0:
                     return;
@@ -729,6 +733,42 @@ class Program
             Console.WriteLine("Guest Name: " + booking.GuestName);
             Console.WriteLine("Room Number: " + booking.RoomNumber);
             Console.WriteLine("Total Revenue: OMR " + booking.TotalCost.ToString("F2"));
+        }
+    }static void GuestPaginationViewer(List<Guest> guests)
+    {
+        const int pageSize = 3;
+
+        if (!guests.Any())
+        {
+            Console.WriteLine("No guests found.");
+            return;
+        }
+
+        Console.Write("Enter Page Number: ");
+        int pageNumber = int.Parse(Console.ReadLine());
+
+        int totalPages = (int)Math.Ceiling((double)guests.Count / pageSize);
+
+        if (pageNumber < 1 || pageNumber > totalPages)
+        {
+            Console.WriteLine("That page does not exist.");
+            return;
+        }
+
+        var pageGuests = guests
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize);
+
+        Console.WriteLine($"\n===== PAGE {pageNumber} OF {totalPages} =====");
+
+        foreach (Guest guest in pageGuests)
+        {
+            Console.WriteLine("------------------------");
+            Console.WriteLine("Guest ID: " + guest.GuestId);
+            Console.WriteLine("Guest Name: " + guest.GuestName);
+            Console.WriteLine("Room Number: " + guest.RoomNumber);
+            Console.WriteLine("Check-In Date: " + guest.CheckInDate);
+            Console.WriteLine("Total Nights: " + guest.TotalNights);
         }
     }
     
