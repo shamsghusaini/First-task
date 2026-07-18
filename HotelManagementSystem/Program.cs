@@ -105,6 +105,10 @@ class Program
                 case 9:
                     GuestLookupByName(guests);
                     break;
+                
+                case 10:
+                    RoomTypeBreakdownReport(rooms);
+                    break;
 
                 case 0:
                     return;
@@ -476,5 +480,42 @@ class Program
             Console.WriteLine("Guest Name: " + guest.GuestName);
             Console.WriteLine("Room Number: " + guest.RoomNumber);
         }
+    }static void RoomTypeBreakdownReport(List<Room> rooms)
+    {
+        Console.WriteLine("\n===== ROOM TYPE BREAKDOWN REPORT =====");
+
+        string[] roomTypes = { "Single", "Double", "Suite" };
+
+        foreach (string type in roomTypes)
+        {
+            int count = rooms.Count(r => r.RoomType.Equals(type, StringComparison.OrdinalIgnoreCase));
+
+            Console.WriteLine("\nRoom Type: " + type);
+            Console.WriteLine("Number of Rooms: " + count);
+
+            if (count > 0)
+            {
+                double averagePrice = rooms
+                    .Where(r => r.RoomType.Equals(type, StringComparison.OrdinalIgnoreCase))
+                    .Average(r => r.PricePerNight);
+
+                Console.WriteLine("Average Price: " + averagePrice.ToString("F2"));
+            }
+            else
+            {
+                Console.WriteLine("Average Price: N/A");
+            }
+        }
+
+        if (rooms.Any())
+        {
+            Console.WriteLine("\nOverall Average Price: " +
+                              rooms.Average(r => r.PricePerNight).ToString("F2"));
+        }
+        else
+        {
+            Console.WriteLine("\nNo rooms available.");
+        }
     }
+    
 }
