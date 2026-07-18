@@ -97,6 +97,10 @@ class Program
                 case 7:
                     GuestBookingStatistics(rooms, guests);
                     break;
+                
+                case 8:
+                    UpdateRoomPrice(rooms);
+                    break;
 
                 case 0:
                     return;
@@ -413,5 +417,36 @@ class Program
                               .Where(g => g.RoomNumber != "Not Assigned")
                               .Average(g => g.TotalNights)
                               .ToString("F2"));
+    }
+    static void UpdateRoomPrice(List<Room> rooms)
+    {
+        Console.Write("Enter Room Number: ");
+        int roomNumber = int.Parse(Console.ReadLine());
+
+        Room room = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+
+        if (room == null)
+        {
+            Console.WriteLine("Room not found.");
+            return;
+        }
+
+        double oldPrice = room.PricePerNight;
+
+        Console.Write("Enter New Price: ");
+        double newPrice = double.Parse(Console.ReadLine());
+
+        if (newPrice <= 0)
+        {
+            Console.WriteLine("Price must be greater than 0.");
+            return;
+        }
+
+        room.PricePerNight = newPrice;
+
+        Console.WriteLine("\nRoom price updated successfully.");
+        Console.WriteLine("Room Number: " + room.RoomNumber);
+        Console.WriteLine("Old Price: " + oldPrice);
+        Console.WriteLine("New Price: " + room.PricePerNight);
     }
 }
