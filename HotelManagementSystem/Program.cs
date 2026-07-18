@@ -121,6 +121,10 @@ class Program
                 case 13:
                     ExtendGuestStay(rooms, guests);
                     break;
+                
+                case 14:
+                    HighestRevenueBooking(rooms, guests);
+                    break;
 
                 case 0:
                     return;
@@ -693,6 +697,39 @@ class Program
         Console.WriteLine("Room Number: " + guest.RoomNumber);
         Console.WriteLine("Updated Total Nights: " + guest.TotalNights);
         Console.WriteLine("Updated Total Cost: " + totalCost);
+    }
+    static void HighestRevenueBooking(List<Room> rooms, List<Guest> guests)
+    {
+        var highestBooking = guests
+            .Where(g => g.RoomNumber != "Not Assigned")
+            .Select(g =>
+            {
+                Room room = rooms.FirstOrDefault(r => r.RoomNumber.ToString() == g.RoomNumber);
+
+                return new
+                {
+                    GuestName = g.GuestName,
+                    RoomNumber = g.RoomNumber,
+                    TotalCost = room != null ? room.PricePerNight * g.TotalNights : 0
+                };
+            })
+            .OrderByDescending(g => g.TotalCost)
+            .Take(1);
+
+        if (!highestBooking.Any())
+        {
+            Console.WriteLine("No active bookings recorded.");
+            return;
+        }
+
+        Console.WriteLine("\n===== HIGHEST REVENUE BOOKING =====");
+
+        foreach (var booking in highestBooking)
+        {
+            Console.WriteLine("Guest Name: " + booking.GuestName);
+            Console.WriteLine("Room Number: " + booking.RoomNumber);
+            Console.WriteLine("Total Revenue: OMR " + booking.TotalCost.ToString("F2"));
+        }
     }
     
 }
