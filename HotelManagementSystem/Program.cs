@@ -101,6 +101,10 @@ class Program
                 case 8:
                     UpdateRoomPrice(rooms);
                     break;
+                
+                case 9:
+                    GuestLookupByName(guests);
+                    break;
 
                 case 0:
                     return;
@@ -448,5 +452,29 @@ class Program
         Console.WriteLine("Room Number: " + room.RoomNumber);
         Console.WriteLine("Old Price: " + oldPrice);
         Console.WriteLine("New Price: " + room.PricePerNight);
+    }
+    static void GuestLookupByName(List<Guest> guests)
+    {
+        Console.Write("Enter Guest Name or Part of Name: ");
+        string search = Console.ReadLine();
+
+        var matchingGuests = guests.Where(g =>
+            g.GuestName.Contains(search, StringComparison.OrdinalIgnoreCase));
+
+        if (!matchingGuests.Any())
+        {
+            Console.WriteLine("No guests matched that search.");
+            return;
+        }
+
+        Console.WriteLine("\nMatching Guests: " + matchingGuests.Count());
+
+        foreach (Guest guest in matchingGuests)
+        {
+            Console.WriteLine("------------------------");
+            Console.WriteLine("Guest ID: " + guest.GuestId);
+            Console.WriteLine("Guest Name: " + guest.GuestName);
+            Console.WriteLine("Room Number: " + guest.RoomNumber);
+        }
     }
 }
