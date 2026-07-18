@@ -117,6 +117,10 @@ class Program
                 case 12:
                     RemoveUnavailableRooms(rooms, guests);
                     break;
+                
+                case 13:
+                    ExtendGuestStay(rooms, guests);
+                    break;
 
                 case 0:
                     return;
@@ -642,6 +646,53 @@ class Program
         {
             Console.WriteLine("Operation cancelled.");
         }
+    }
+    static void ExtendGuestStay(List<Room> rooms, List<Guest> guests)
+    {
+        Console.Write("Enter Guest ID: ");
+        string guestId = Console.ReadLine();
+
+        Guest guest = guests.FirstOrDefault(g => g.GuestId == guestId);
+
+        if (guest == null)
+        {
+            Console.WriteLine("Guest not found.");
+            return;
+        }
+
+        if (guest.RoomNumber == "Not Assigned")
+        {
+            Console.WriteLine("This guest has no active booking.");
+            return;
+        }
+
+        Console.Write("Enter Additional Nights: ");
+        int extraNights = int.Parse(Console.ReadLine());
+
+        if (extraNights <= 0)
+        {
+            Console.WriteLine("Additional nights must be greater than 0.");
+            return;
+        }
+
+        guest.TotalNights += extraNights;
+
+        Room room = rooms.FirstOrDefault(r =>
+            r.RoomNumber.ToString() == guest.RoomNumber);
+
+        if (room == null)
+        {
+            Console.WriteLine("Room not found.");
+            return;
+        }
+
+        double totalCost = room.PricePerNight * guest.TotalNights;
+
+        Console.WriteLine("\nStay extended successfully.");
+        Console.WriteLine("Guest Name: " + guest.GuestName);
+        Console.WriteLine("Room Number: " + guest.RoomNumber);
+        Console.WriteLine("Updated Total Nights: " + guest.TotalNights);
+        Console.WriteLine("Updated Total Cost: " + totalCost);
     }
     
 }
