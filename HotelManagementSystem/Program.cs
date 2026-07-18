@@ -113,6 +113,10 @@ class Program
                 case 11:
                     CheckOutGuest(rooms, guests);
                     break;
+                
+                case 12:
+                    RemoveUnavailableRooms(rooms, guests);
+                    break;
 
                 case 0:
                     return;
@@ -580,6 +584,63 @@ class Program
         else
         {
             Console.WriteLine("Checkout cancelled.");
+        }
+    }
+    static void RemoveUnavailableRooms(List<Room> rooms, List<Guest> guests)
+    {
+        var removableRooms = rooms
+            .Where(r => !r.IsAvailable &&
+                        !guests.Any(g => g.RoomNumber == r.RoomNumber.ToString()))
+            .OrderBy(r => r.RoomNumber);
+
+        if (!removableRooms.Any())
+        {
+            Console.WriteLine("All unavailable rooms are currently occupied.");
+            Console.WriteLine("No rooms can be decommissioned.");
+            return;
+        }
+
+        Console.WriteLine("\n===== REMOVABLE ROOMS =====");
+
+        foreach (Room room in removableRooms)
+        {
+            Console.WriteLine("------------------------");
+            Console.WriteLine("Room Number: " + room.RoomNumber);
+            Console.WriteLine("Room Type: " + room.RoomType);
+            Console.WriteLine("Price: " + room.PricePerNight);
+        }
+
+        Console.WriteLine("\nTotal Removable Rooms: " + removableRooms.Count());
+
+        Console.Write("Confirm removal (Y/N): ");
+        string choice = Console.ReadLine();
+
+        if (choice.ToUpper() == "Y")
+        {
+            rooms.RemoveAll(r =>
+                !r.IsAvailable &&
+                !guests.Any(g => g.RoomNumber == r.RoomNumber.ToString()));
+
+            Console.WriteLine("\nRooms removed successfully.");
+            Console.WriteLine("Updated Total Rooms: " + rooms.Count);
+
+            Console.WriteLine("\nRemaining Rooms:");
+
+            var remainingRooms = rooms
+                .Select(r => new
+                {
+                    r.RoomNumber,
+                    r.RoomType
+                });
+
+            foreach (var room in remainingRooms)
+            {
+                Console.WriteLine("Room " + room.RoomNumber + " - " + room.RoomType);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Operation cancelled.");
         }
     }
     
